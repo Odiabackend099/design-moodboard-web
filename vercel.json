@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "name": "odia-voice-assistant",
+  "builds": [
+    { "src": "api/**/*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/(.*)", "dest": "/public/$1" }
+  ],
+  "env": {
+    "OPENAI_API_KEY": "@openai_api_key",
+    "ANTHROPIC_API_KEY": "@anthropic_api_key",
+    "SUPABASE_SERVICE_KEY": "@supabase_service_key",
+    "TWILIO_AUTH_TOKEN": "@twilio_auth_token"
+  }
+}

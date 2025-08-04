@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ODIA Voice Assistant</title>
+    <style>
+        .odia-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1e40af;
+            border-radius: 50px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+        }
+        .record-btn {
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background: #3b82f6;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .response-box {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            max-width: 300px;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="odia-widget">
+        <button id="recordBtn" class="record-btn">🎤</button>
+    </div>
+
+    <div id="responseBox" class="response-box">
+        <div id="transcription"></div>
+        <div id="response"></div>
+    </div>
+</body>
+</html>
