@@ -1,17 +1,23 @@
+
 {
   "version": 2,
-  "name": "odia-voice-assistant",
-  "builds": [
-    { "src": "api/**/*.js", "use": "@vercel/node" }
-  ],
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "@supabase_url",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase_anon_key"
+  },
+  "build": {
+    "env": {
+      "SUPABASE_SERVICE_ROLE_KEY": "@supabase_service_role_key",
+      "FLUTTERWAVE_SECRET_KEY": "@flutterwave_secret_key"
+    }
+  },
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/api/health", "dest": "/api/health/system.js" },
+    { "src": "/api/webhook/(.*)", "dest": "/api/webhook/$1.js" },
     { "src": "/(.*)", "dest": "/public/$1" }
   ],
-  "env": {
-    "OPENAI_API_KEY": "@openai_api_key",
-    "ANTHROPIC_API_KEY": "@anthropic_api_key",
-    "SUPABASE_SERVICE_KEY": "@supabase_service_key",
-    "TWILIO_AUTH_TOKEN": "@twilio_auth_token"
-  }
+  "protectedEnvironmentVariables": [
+    "SUPABASE_SERVICE_ROLE_KEY",
+    "FLUTTERWAVE_SECRET_KEY"
+  ]
 }
